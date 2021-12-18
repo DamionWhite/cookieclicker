@@ -12,6 +12,15 @@
     <div id="main">
         <div id="cookieBtn" onclick="cookieClick()"></div>
         <h1 id="cookieCount">You have no cookies :(</h1>
+        <small id="cookiesPerSecond"></small>
+    </div>
+
+    <div id="shopMenu" class="hidden">
+        <div class="item">
+            <h4>Cursor <span id="itemCursorCPS"></span></h4>
+            <p id="itemCursorAmount">Owned: none</p>
+            <button id="buyCursorBtn" onclick="buyCursor()">Buy (-100 C)</button>
+        </div>
     </div>
 
     <script src="main.js"></script>

@@ -33,3 +33,29 @@
     background-color: #816005ea;
     border-color: #423204ea;
 }
+
+
+#shopMenu {
+    /* Set width & height */
+    width: 800px;
+    height: 128px;
+
+    /* Center this element */
+    margin: 6px auto;
+
+    /* Create a border */
+    border-color: black;
+    border-width: 3px;
+    border-style: solid;
+
+    /* Make this container a FlexBox */
+    display: flex;
+    justify-content: space-around;
+}
+
+.item {
+    width: 124px;
+}
+
+.hidden {display:none !important;}
+span {font-weight: 400; font-size: 12px;}
