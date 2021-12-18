@@ -18,7 +18,7 @@ function cookieClick() {
     cookieCount++;
 
     // Display cookie count
-    HTML_cookie_count.innerText = "Cookie Count: " + cookieCount;
+    HtmlUpdateCookieCount();
 
     // Display shopmenu when Cookie reach 100
     if(!showShop && cookieCount >= 100) {
@@ -28,24 +28,20 @@ function cookieClick() {
         showShop = true;
 
         // Initialize HTML elements for Cursor
-        HTML_cursor_cps.innerText = "(" + cursorCPS + " cps)";
-        HTML_buy_cursor_btn.innerText = "Buy (- " + cursorPrice + "C)";
+        HtmlUpdateCursor();
     }
 }
 
 function buyCursor() {
     if(cookieCount >= cursorPrice) {
-    // Update JavaScript Variables
+        // Update JavaScript Variables
         cookieCount -= cursorPrice;
         cursorAmount++;
 
-    // Update HTML
-        // Display cookie count
-        HTML_cookie_count.innerText = "Cookie Count: " + cookieCount;
-        // Update Cursor Amount
-        HTML_cursor_amount.innerText = "Owned: " + cursorAmount;
-        // Update cps
-        HTML_total_cps.innerText = "Cookies per Second: " + getCPS();
+        // Update HTML
+        HtmlUpdateCookieCount();
+        HtmlUpdateCursor();
+        HtmlUpdateCps();
 
     }
 }
@@ -62,5 +58,21 @@ setInterval(() => {
     // Update Cookies count
     cookieCount += getCPS();
     // Update Cookie count HTML
-    HTML_cookie_count.innerText = "Cookie Count: " + cookieCount;    
+    HtmlUpdateCookieCount();    
 }, 1000);
+
+function HtmlUpdateCookieCount() {
+    if(cookieCount == 0) {
+        HTML_cookie_count.innerText = "You have no cookies :("
+    } else HTML_cookie_count.innerText = "Cookie Count: " + cookieCount;
+}
+
+function HtmlUpdateCps() {
+    HTML_total_cps.innerText = "Cookies per Second: " + getCPS();
+}
+
+function HtmlUpdateCursor() {
+    HTML_cursor_amount.innerText = "Owned: " + cursorAmount;
+    HTML_cursor_cps.innerText = "(" + cursorCPS + " cps)";
+    HTML_buy_cursor_btn.innerText = "Buy (- " + cursorPrice + "C)";
+}
